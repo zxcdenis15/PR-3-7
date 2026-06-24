@@ -16,3 +16,12 @@ const nav = document.querySelector("nav");
 burgerBtn.addEventListener("click", () => {
   nav.classList.toggle("open");
 });
+const toggleBtn = document.getElementById("toggle-btn");
+const extraInfo = document.getElementById("extra-info");
+
+toggleBtn.addEventListener("click", () => {
+  extraInfo.classList.toggle("expanded");
+  toggleBtn.textContent = extraInfo.classList.contains("expanded")
+    ? "Скрыть"
+    : "Показать больше";
+});

@@ -130,3 +130,24 @@ button:active {
 .extra-info.expanded {
   max-height: 500px;
 }
+
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #eaeaea;
+}
+
+body.dark-theme header {
+  background-color: #111;
+}
+
+body.dark-theme .projects-grid article {
+  background-color: #2a2a2a;
+  color: #eaeaea;
+}
+
+.error {
+  display: block;
+  color: #d33;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}

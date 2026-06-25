@@ -45,13 +45,17 @@
                 <button type="submit">Отправить</button>
             </form>
         </section>
+        <div class="filters">
+            <button data-filter="all" class="active">Все</button>
+            <button data-filter="frontend">Frontend</button>
+            <button data-filter="design">Дизайн</button>
+        </div>
 
+        <input type="text" id="search-input" placeholder="Поиск проекта...">
+        
         <section id="projects">
             <h2>Проекты</h2>
-            <article>
-            <h3>Танки</h3>
-            <p>Реалистичные битвы на легендарных танках, более 800 машин готовы к бою. Присоединяйся к культовой игре «Мир танков»!</p>
-            </article>
+            <div class="projects-grid" id="projects-grid"></div>
         </section>
     </main>
     <footer>

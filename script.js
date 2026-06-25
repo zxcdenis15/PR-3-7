@@ -68,3 +68,52 @@ form.addEventListener("submit", (event) => {
     form.reset();
   }
 });
+
+const projects = [
+  { id: 1, title: "Сайт-визитка", category: "frontend", description: "Разработка адаптивного сайта" },
+  { id: 2, title: "Таск-трекер", category: "backend", description: "Простое приложение для управления задачами" },
+  { id: 3, title: "Макет мобильного приложения", category: "design", description: "Проектирование пользовательского интерфейса" },
+  { id: 4, title: "Игра на чистом JS", category: "frontend", description: "Разработка интерактивной мини-игры"}
+];
+
+function createCard(project) {
+  return `
+    <article class="project-card" data-category="${project.category}">
+      <h3>${project.title}</h3>
+      <p>${project.description}</p>
+    </article>
+  `;
+}
+
+function renderProjects(list) {
+  const container = document.getElementById("projects-grid");
+  container.innerHTML = list.map(createCard).join("");
+}
+
+renderProjects(projects);
+
+const filterButtons = document.querySelectorAll(".filters button");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+    const filtered = filter === "all"
+      ? projects
+      : projects.filter(p => p.category === filter);
+
+    renderProjects(filtered);
+  });
+});
+
+const searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = projects.filter(p =>
+    p.title.toLowerCase().includes(query)
+  );
+  renderProjects(filtered);
+});
